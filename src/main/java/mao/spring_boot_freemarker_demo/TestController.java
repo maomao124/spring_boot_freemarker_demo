@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -173,5 +174,21 @@ public class TestController
 
         //返回模板文件名称
         return "test5";
+    }
+
+
+    @RequestMapping("/test6")
+    public String freemarker6(Map<String, Object> map, HttpServletRequest httpServletRequest, HttpSession session)
+    {
+        //设置
+        httpServletRequest.setAttribute("request1","1234");
+        httpServletRequest.setAttribute("request2","5678");
+
+        session.setAttribute("session1","1111111");
+        session.setAttribute("session2","2222222");
+
+
+        //返回模板文件名称
+        return "test6";
     }
 }

@@ -11,6 +11,12 @@ spring:
     template-loader-path: classpath:/templates/
     # 编码格式
     charset: UTF-8
+    #把Spring的RequestContext对象暴露为变量rc
+    request‐context‐attribute: rc
+    # request
+    expose‐request‐attributes: true
+    # session
+    expose‐session‐attributes: true
     settings:
       # 数字格式化，无小数点
       number_format: '0.##'
