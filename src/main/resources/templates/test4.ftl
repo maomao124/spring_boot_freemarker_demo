@@ -15,22 +15,16 @@
         <td>性别</td>
         <td>年龄</td>
     </tr>
-    <#list studentMap?keys as k>
+    <#list stus as stu>
         <tr>
-            <td>${k_index + 1}</td>
-            <td>${studentMap[k].id}</td>
-            <td>${studentMap[k].name}</td>
-            <td>${studentMap[k].sex}</td>
-            <td>${studentMap[k].age}</td>
+            <td <#if stu_index==2>style="color: hotpink" </#if>>${stu_index + 1}</td>
+            <td>${stu.id}</td>
+            <td<#if stu.name=='张三'> style="color: skyblue" </#if>>${stu.name}</td>
+            <td>${stu.sex}</td>
+            <td>${stu.age}</td>
         </tr>
     </#list>
 </table>
-
-<br>
-
-${studentMap['student1'].name}
-<br>
-${studentMap.student2.name}
 
 </body>
 </html>
