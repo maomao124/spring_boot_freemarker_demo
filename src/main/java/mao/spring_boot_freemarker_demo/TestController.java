@@ -130,4 +130,48 @@ public class TestController
         //返回模板文件名称
         return "test4";
     }
+
+    @RequestMapping("/test5")
+    public String freemarker5(Map<String, Object> map)
+    {
+        Student student1 = new Student();
+        student1.setId(10001L);
+        student1.setName("张三");
+        student1.setSex("男");
+        student1.setAge(18);
+
+        Student student2 = new Student();
+        student2.setId(10002L);
+        student2.setName("李四");
+        student2.setSex("男");
+        //一定概率为空
+        if (Math.random() > 0.5)
+        {
+            student2.setAge(19);
+        }
+        Student student3 = new Student();
+        student3.setId(10004L);
+        student3.setName("王五");
+        student3.setSex("女");
+        //一定概率为空
+        if (Math.random() > 0.5)
+        {
+            student3.setAge(17);
+        }
+
+
+        List<Student> list = new ArrayList<>(3);
+        list.add(student1);
+        list.add(student2);
+        list.add(student3);
+
+        //一定概率为空
+        if (Math.random() > 0.5)
+        {
+            map.put("stus", list);
+        }
+
+        //返回模板文件名称
+        return "test5";
+    }
 }
