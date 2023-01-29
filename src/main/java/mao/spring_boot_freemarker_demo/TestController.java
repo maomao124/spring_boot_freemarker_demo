@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -63,5 +64,38 @@ public class TestController
 
         //返回模板文件名称
         return "test2";
+    }
+
+    @RequestMapping("/test3")
+    public String freemarker3(Map<String, Object> map)
+    {
+        Student student1 = new Student();
+        student1.setId(10001L);
+        student1.setName("张三");
+        student1.setSex("男");
+        student1.setAge(18);
+
+        Student student2 = new Student();
+        student2.setId(10002L);
+        student2.setName("李四");
+        student2.setSex("男");
+        student2.setAge(19);
+
+        Student student3 = new Student();
+        student3.setId(10004L);
+        student3.setName("王五");
+        student3.setSex("女");
+        student3.setAge(17);
+
+        Map<String, Student> studentMap = new HashMap<>();
+
+        studentMap.put("student1", student1);
+        studentMap.put("student2", student2);
+        studentMap.put("student3", student3);
+
+        map.put("studentMap", studentMap);
+
+        //返回模板文件名称
+        return "test3";
     }
 }
